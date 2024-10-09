@@ -1,16 +1,33 @@
-## Hi there 👋
+```php
+<?php
 
-<!--
-**ricardomartos/ricardomartos** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+class DeveloperProfile {
+    public readonly string $name;
+    public readonly string $role;
+    public readonly array $skills;
 
-Here are some ideas to get you started:
+    public function __construct(
+        string $name = "Ricardo",
+        string $role = "PHP Backend Developer",
+        array $skills = ["PHP", "Laravel", "API Development", "Backend Architecture", "SQL", "UNIX"]
+    ) {
+        $this->name = $name;
+        $this->role = $role;
+        $this->skills = $skills;
+    }
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+    public function getProfile(): array {
+        return [
+            'Name' => $this->name,
+            'Role' => $this->role,
+            'Skills' => implode(", ", $this->skills)
+        ];
+    }
+}
+
+$me = new DeveloperProfile();
+
+var_dump($me->getProfile());
+
+?>
+```
